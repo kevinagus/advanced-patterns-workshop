@@ -1,6 +1,11 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-export function makeEventHandlers(obj: unknown) {
+export function makeEventHandlers<
+  T extends {
+    [key in keyof V]: (name: key) => void;
+  },
+  V
+>(obj: T) {
   return obj;
 }
 
